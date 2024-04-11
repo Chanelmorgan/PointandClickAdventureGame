@@ -30,6 +30,7 @@ public class UI {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().setBackground(Color.BLACK);
         window.setLayout(null);
+        window.setTitle("Adventure Game");
 
         // Creating and adding the message text
         messageText = new JTextArea("This is sample text ");
@@ -60,13 +61,13 @@ public class UI {
         // Get the original image from the ImageIcon
         Image originalImage = bgIcon.getImage();
 
-// Resize the original image to fit within the dimensions of the JLabel
+        // Resize the original image to fit within the dimensions of the JLabel
         Image scaledImage = originalImage.getScaledInstance(bgLabel[bgNum].getWidth(), bgLabel[bgNum].getHeight(), Image.SCALE_SMOOTH);
 
-// Create a new ImageIcon from the scaled image
+        // Create a new ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-// Set the scaled ImageIcon as the icon of the JLabel
+        // Set the scaled ImageIcon as the icon of the JLabel
         bgLabel[bgNum].setIcon(scaledIcon);
 
         bgPanel[bgNum].add(bgLabel[bgNum]);
@@ -95,13 +96,15 @@ public class UI {
         objectLabel.setIcon(scaledIcon);
 
         bgPanel[bgNum].add(objectLabel);
-        bgPanel[bgNum].add(bgLabel[1]);
+        bgPanel[bgNum].add(bgLabel[bgNum]);
 
 
     }
 
     public void generateScreen(){
         createBackground(1, "treeLandscape.png");
-        createObject(1,50, 250, 100, 100, "hut.png");
+        createObject(1, 440, 300, 50, 50, "guard.png");
+        createObject(1,50, 260, 100, 100, "hut.png");
+        createObject(1,310, 250, 50, 50, "locked-chest.png");
     }
 }
