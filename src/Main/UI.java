@@ -18,8 +18,7 @@ public class UI {
         this.gm = gm;
 
         createMainField();
-        createBackground();
-        createObject();
+        generateScreen();
 
         window.setVisible(true);
     }
@@ -46,41 +45,42 @@ public class UI {
     }
 
 
-    public void createBackground(){
-        bgPanel[1] = new JPanel();
-        bgPanel[1].setBounds(50, 50, 700, 350);
-        bgPanel[1].setBackground(null);
-        bgPanel[1].setLayout(null);
-        window.add(bgPanel[1]);
+    public void createBackground(int bgNum, String bgFileName ){
+        bgPanel[bgNum] = new JPanel();
+        bgPanel[bgNum].setBounds(50, 50, 700, 350);
+        bgPanel[bgNum].setBackground(null);
+        bgPanel[bgNum].setLayout(null);
+        window.add(bgPanel[bgNum]);
 
         // uses to load the images
-        bgLabel[1] = new JLabel();
-        bgLabel[1].setBounds(0, 0, 700, 350);
+        bgLabel[bgNum] = new JLabel();
+        bgLabel[bgNum].setBounds(0, 0, 700, 350);
 
-        ImageIcon bgIcon  = new ImageIcon(getClass().getClassLoader().getResource("treeLandscape.png"));
+        ImageIcon bgIcon  = new ImageIcon(getClass().getClassLoader().getResource(bgFileName));
         // Get the original image from the ImageIcon
         Image originalImage = bgIcon.getImage();
 
 // Resize the original image to fit within the dimensions of the JLabel
-        Image scaledImage = originalImage.getScaledInstance(bgLabel[1].getWidth(), bgLabel[1].getHeight(), Image.SCALE_SMOOTH);
+        Image scaledImage = originalImage.getScaledInstance(bgLabel[bgNum].getWidth(), bgLabel[bgNum].getHeight(), Image.SCALE_SMOOTH);
 
 // Create a new ImageIcon from the scaled image
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
 // Set the scaled ImageIcon as the icon of the JLabel
-        bgLabel[1].setIcon(scaledIcon);
+        bgLabel[bgNum].setIcon(scaledIcon);
 
-        bgPanel[1].add(bgLabel[1]);
+        bgPanel[bgNum].add(bgLabel[bgNum]);
 
 
 
     }
 
-    public void createObject(){
+    public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String fileName){
         JLabel objectLabel = new JLabel();
-        objectLabel.setBounds(50, 250, 100, 100);
+        //objectLabel.setBounds(50, 250, 100, 100);
+        objectLabel.setBounds(objx, objy, objWidth, objHeight);
         // Load the hut image
-        ImageIcon objectIcon = new ImageIcon(getClass().getClassLoader().getResource("hut.png"));
+        ImageIcon objectIcon = new ImageIcon(getClass().getClassLoader().getResource(fileName));
 
         // Get the original image from the ImageIcon
         Image originalImage = objectIcon.getImage();
@@ -94,11 +94,14 @@ public class UI {
         // Set the scaled ImageIcon as the icon of the JLabel
         objectLabel.setIcon(scaledIcon);
 
-        bgPanel[1].add(objectLabel);
-        bgPanel[1].add(bgLabel[1]);
+        bgPanel[bgNum].add(objectLabel);
+        bgPanel[bgNum].add(bgLabel[1]);
 
 
+    }
 
-
+    public void generateScreen(){
+        createBackground(1, "treeLandscape.png");
+        createObject(1,50, 250, 100, 100, "hut.png");
     }
 }
