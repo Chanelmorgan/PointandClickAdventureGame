@@ -79,18 +79,24 @@ public class UI {
     }
 
     public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String fileName, String choice1Name,
-                             String choice2Name, String choice3Name){
+                             String choice2Name, String choice3Name, String choice1Command, String choice2Command, String choice3Command){
 
         // Creating pop menu
         JPopupMenu popMenu = new JPopupMenu();
         JMenuItem menuItem[] = new JMenuItem[4]; // using [1], [2], [3]
         menuItem[1] = new JMenuItem(choice1Name);
+        menuItem[1].addActionListener(gm.aHandelr);
+        menuItem[1].setActionCommand("choice1Command");
         popMenu.add(menuItem[1]);
 
         menuItem[2] = new JMenuItem(choice2Name);
+        menuItem[2].addActionListener(gm.aHandelr);
+        menuItem[2].setActionCommand("choice2Command");
         popMenu.add(menuItem[2]);
 
         menuItem[3] = new JMenuItem(choice3Name);
+        menuItem[3].addActionListener(gm.aHandelr);
+        menuItem[3].setActionCommand("choice3Command");
         popMenu.add(menuItem[3]);
 
         // create objects
@@ -151,8 +157,8 @@ public class UI {
 
     public void generateScreen(){
         createBackground(1, "treeLandscape.png");
-        createObject(1, 440, 300, 50, 50, "guard.png", "Look", "Talk", "Attack");
-        createObject(1,50, 260, 100, 100, "hut.png", "Look", "Talk", "Rest");
-        createObject(1,310, 250, 50, 50, "locked-chest.png", "Look", "Talk", "Open");
+        createObject(1, 440, 300, 50, 50, "guard.png", "Look", "Talk", "Attack", "lookGuard", "talkGuard", "attackGuard");
+        createObject(1,50, 260, 100, 100, "hut.png", "Look", "Talk", "Rest", "lookHut", "talkHut", "restHut");
+        createObject(1,310, 250, 50, 50, "locked-chest.png", "Look", "Talk", "Open", "lookChest", "talkChest", "openChest");
     }
 }
