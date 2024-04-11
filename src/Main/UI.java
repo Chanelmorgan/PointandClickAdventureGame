@@ -19,6 +19,7 @@ public class UI {
 
         createMainField();
         createBackground();
+        createObject();
 
         window.setVisible(true);
     }
@@ -70,6 +71,32 @@ public class UI {
         bgLabel[1].setIcon(scaledIcon);
 
         bgPanel[1].add(bgLabel[1]);
+
+
+
+    }
+
+    public void createObject(){
+        JLabel objectLabel = new JLabel();
+        objectLabel.setBounds(50, 250, 100, 100);
+        // Load the hut image
+        ImageIcon objectIcon = new ImageIcon(getClass().getClassLoader().getResource("hut.png"));
+
+        // Get the original image from the ImageIcon
+        Image originalImage = objectIcon.getImage();
+
+        // Resize the original image to fit within the dimensions of the JLabel
+        Image scaledImage = originalImage.getScaledInstance(objectLabel.getWidth(), objectLabel.getHeight(), Image.SCALE_SMOOTH);
+
+        // Create a new ImageIcon from the scaled image
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        // Set the scaled ImageIcon as the icon of the JLabel
+        objectLabel.setIcon(scaledIcon);
+
+        bgPanel[1].add(objectLabel);
+        bgPanel[1].add(bgLabel[1]);
+
 
 
 
