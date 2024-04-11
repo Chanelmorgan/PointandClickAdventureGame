@@ -2,6 +2,8 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class UI {
 
@@ -76,7 +78,22 @@ public class UI {
 
     }
 
-    public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String fileName){
+    public void createObject(int bgNum, int objx, int objy, int objWidth, int objHeight, String fileName, String choice1Name,
+                             String choice2Name, String choice3Name){
+
+        // Creating pop menu
+        JPopupMenu popMenu = new JPopupMenu();
+        JMenuItem menuItem[] = new JMenuItem[4]; // using [1], [2], [3]
+        menuItem[1] = new JMenuItem(choice1Name);
+        popMenu.add(menuItem[1]);
+
+        menuItem[2] = new JMenuItem(choice2Name);
+        popMenu.add(menuItem[2]);
+
+        menuItem[3] = new JMenuItem(choice3Name);
+        popMenu.add(menuItem[3]);
+
+        // create objects
         JLabel objectLabel = new JLabel();
         //objectLabel.setBounds(50, 250, 100, 100);
         objectLabel.setBounds(objx, objy, objWidth, objHeight);
@@ -95,6 +112,37 @@ public class UI {
         // Set the scaled ImageIcon as the icon of the JLabel
         objectLabel.setIcon(scaledIcon);
 
+        // adding mouse listener to the objects
+        objectLabel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if(SwingUtilities.isRightMouseButton(e)){
+                    popMenu.show(objectLabel, e.getX(), e.getY());
+                }
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
         bgPanel[bgNum].add(objectLabel);
         bgPanel[bgNum].add(bgLabel[bgNum]);
 
@@ -103,8 +151,8 @@ public class UI {
 
     public void generateScreen(){
         createBackground(1, "treeLandscape.png");
-        createObject(1, 440, 300, 50, 50, "guard.png");
-        createObject(1,50, 260, 100, 100, "hut.png");
-        createObject(1,310, 250, 50, 50, "locked-chest.png");
+        createObject(1, 440, 300, 50, 50, "guard.png", "Look", "Talk", "Attack");
+        createObject(1,50, 260, 100, 100, "hut.png", "Look", "Talk", "Rest");
+        createObject(1,310, 250, 50, 50, "locked-chest.png", "Look", "Talk", "Open");
     }
 }
