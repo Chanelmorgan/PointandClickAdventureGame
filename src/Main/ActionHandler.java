@@ -21,31 +21,31 @@ public class ActionHandler implements ActionListener {
 
         switch(yourChoice) {
             case"lookHut":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.lookHut();
                 break;
             case "talkHut":
-                gm.ui.messageText.setText("Who are you talking to? ");
+               gm.ev1.talkHut();
                 break;
-            case "rest":
-                gm.ui.messageText.setText("You rest at the hose. \nYour life has recovered");
+            case "restHut":
+                gm.ev1.restHut();
                 break;
             case "lookGuard":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.lookGuard();
                 break;
             case "talkGuard":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.talkGuard();
                 break;
             case "attackGuard":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.attackGuard();
                 break;
             case "lookChest":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.lookChest();
                 break;
             case "talkChest":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.talkChest();
                 break;
             case "openChest":
-                gm.ui.messageText.setText("This is your house");
+                gm.ev1.openChest();
                 break;
         }
 
