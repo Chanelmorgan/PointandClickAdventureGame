@@ -16,6 +16,9 @@ public class UI {
 
     //PLAYER UI
     JPanel lifePanel;
+    JLabel lifeLabel[] = new JLabel[6];
+    JPanel inventoryPanel;
+    public JLabel swordLabel, shieldLabel, lanternLabel;
 
 
     // Constructor
