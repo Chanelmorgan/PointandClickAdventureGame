@@ -192,7 +192,7 @@ public class UI {
     public void createPlayerField(){
         lifePanel = new JPanel();
         lifePanel.setBounds(50, 0, 250, 50);
-        lifePanel.setBackground(Color.blue);
+        lifePanel.setBackground(Color.black);
         lifePanel.setLayout(new GridLayout(1,5));
         window.add(lifePanel);
 
@@ -212,7 +212,7 @@ public class UI {
         // Creating the inventory panel
         inventoryPanel = new JPanel();
         inventoryPanel.setBounds(650, 0, 100, 50);
-       // inventoryPanel.setBackground(Color.BLUE);
+       inventoryPanel.setBackground(Color.black);
         inventoryPanel.setLayout(new GridLayout(1, 3));
         window.add(inventoryPanel);
 
