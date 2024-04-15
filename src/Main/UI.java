@@ -192,7 +192,7 @@ public class UI {
         // Scene 2
         createBackground(2, "cave.jpg");
         //createObject(1, 440, 300, 50, 50, "guard.png", "Look", "Talk", "Attack", "lookGuard", "talkGuard", "attackGuard");
-        createArrowButton(2, 650, 150, 50, 50, "right-arrow.png", "goScrene1");
+        createArrowButton(2, 650, 150, 50, 50, "right-arrow.png", "goScene1");
         bgPanel[2].add(bgLabel[2]);
 
     }
