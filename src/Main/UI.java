@@ -212,12 +212,32 @@ public class UI {
         // Creating the inventory panel
         inventoryPanel = new JPanel();
         inventoryPanel.setBounds(650, 0, 100, 50);
-        inventoryPanel.setBackground(Color.BLUE);
+       // inventoryPanel.setBackground(Color.BLUE);
         inventoryPanel.setLayout(new GridLayout(1, 3));
         window.add(inventoryPanel);
 
         // Create Items
         swordLabel = new JLabel();
+        ImageIcon swordIcon = new ImageIcon(getClass().getClassLoader().getResource("plain-dagger.png"));
+        image = swordIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+        swordIcon = new ImageIcon(image);
+        swordLabel.setIcon(swordIcon);
+        inventoryPanel.add(swordLabel);
+
+        shieldLabel = new JLabel();
+        ImageIcon shieldIcon = new ImageIcon(getClass().getClassLoader().getResource("dragon-shield.png"));
+        image = shieldIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+        shieldIcon = new ImageIcon(image);
+        shieldLabel.setIcon(shieldIcon);
+        inventoryPanel.add(shieldLabel);
+
+        lanternLabel = new JLabel();
+        ImageIcon lanternIcon = new ImageIcon(getClass().getClassLoader().getResource("lantern-flame.png"));
+        image = lanternIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+        lanternIcon = new ImageIcon(image);
+        lanternLabel.setIcon(lanternIcon);
+        inventoryPanel.add(lanternLabel);
+
 
 
 
