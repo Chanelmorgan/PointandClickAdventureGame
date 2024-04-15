@@ -26,6 +26,7 @@ public class UI {
         this.gm = gm;
 
         createMainField();
+        createPlayerField();
         generateScreen();
 
         window.setVisible(true);
@@ -188,6 +189,41 @@ public class UI {
 
     }
 
+    public void createPlayerField(){
+        lifePanel = new JPanel();
+        lifePanel.setBounds(50, 0, 250, 50);
+        lifePanel.setBackground(Color.blue);
+        lifePanel.setLayout(new GridLayout(1,5));
+        window.add(lifePanel);
+
+        // Getting the heart image
+        ImageIcon lifeIcon = new ImageIcon(getClass().getClassLoader().getResource("heart.png"));
+        Image image = lifeIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+        lifeIcon = new ImageIcon(image);
+
+        int i = 1;
+        while(i<6) {
+            lifeLabel[i] = new JLabel();
+            lifeLabel[i].setIcon(lifeIcon);
+            lifePanel.add(lifeLabel[i]);
+            i++;
+        }
+
+        // Creating the inventory panel
+        inventoryPanel = new JPanel();
+        inventoryPanel.setBounds(650, 0, 100, 50);
+        inventoryPanel.setBackground(Color.BLUE);
+        inventoryPanel.setLayout(new GridLayout(1, 3));
+        window.add(inventoryPanel);
+
+        // Create Items
+        swordLabel = new JLabel();
+
+
+
+
+    }
+
     // SCENE 1
     public void generateScreen(){
         createBackground(1, "treeLandscape.png");
@@ -205,4 +241,6 @@ public class UI {
         bgPanel[2].add(bgLabel[2]);
 
     }
+
+
 }
