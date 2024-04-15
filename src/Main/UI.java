@@ -14,6 +14,9 @@ public class UI {
     public JPanel bgPanel[] = new JPanel[10];  // if need more than 1 bg images increase this number
     public JLabel bgLabel[] = new JLabel[10];
 
+    //PLAYER UI
+    JPanel lifePanel;
+
 
     // Constructor
     public UI(GameManger gm){
@@ -104,6 +107,8 @@ public class UI {
         JLabel objectLabel = new JLabel();
         //objectLabel.setBounds(50, 250, 100, 100);
         objectLabel.setBounds(objx, objy, objWidth, objHeight);
+//        objectLabel.setOpaque(true);
+//        objectLabel.setBackground(Color.blue);
         // Load the hut image
         ImageIcon objectIcon = new ImageIcon(getClass().getClassLoader().getResource(fileName));
 
@@ -191,7 +196,8 @@ public class UI {
 
         // Scene 2
         createBackground(2, "cave.jpg");
-        //createObject(1, 440, 300, 50, 50, "guard.png", "Look", "Talk", "Attack", "lookGuard", "talkGuard", "attackGuard");
+        createObject(2, 480, 190, 100, 100, "blank.png", "Look", "Talk", "Enter", "lookCave", "talkCave", "tnterCave");
+        createObject(2, 50, 220, 200, 50, "blank.png", "Look", "Talk", "Search", "lookRoot", "talkRoot", "searchRoot");
         createArrowButton(2, 650, 150, 50, 50, "right-arrow.png", "goScene1");
         bgPanel[2].add(bgLabel[2]);
 
