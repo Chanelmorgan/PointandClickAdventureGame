@@ -22,6 +22,7 @@ public class Player {
         hasSword = 0; // 0 = false, 1 = true
         hasLantern = 0;
         hasShield = 0;
+        updatePlayerStatus();
     }
 
     public void updatePlayerStatus(){
