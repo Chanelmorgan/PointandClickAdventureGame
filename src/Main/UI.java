@@ -20,6 +20,10 @@ public class UI {
     JPanel inventoryPanel;
     public JLabel swordLabel, shieldLabel, lanternLabel;
 
+    // GAME OVER UI
+    public JLabel titleLabel;
+    public JButton restartButton;
+
 
     // Constructor
     public UI(GameManger gm){
@@ -27,6 +31,7 @@ public class UI {
 
         createMainField();
         createPlayerField();
+        createGameOverField();
         generateScreen();
 
         window.setVisible(true);
@@ -244,6 +249,28 @@ public class UI {
 
     }
 
+
+    public void createGameOverField(){
+        // creating the game over title
+        titleLabel = new JLabel();
+        titleLabel.setBounds(100, 150, 400, 200);
+        titleLabel.setForeground(Color.red);
+        titleLabel.setFont(new Font("Times New Roman", Font.PLAIN, 70));
+        titleLabel.setVisible(false);
+        window.add(titleLabel);
+
+        // creating the restart button
+        restartButton = new JButton();
+        restartButton.setBounds(340, 320, 120, 50);
+        restartButton.setBackground(null);
+        restartButton.setForeground(Color.white);
+        restartButton.setFocusPainted(false);
+        restartButton.addActionListener(gm.aHandelr);
+        restartButton.setActionCommand("restart");
+        restartButton.setVisible(false);
+        window.add(restartButton);
+    }
+
     // SCENE 1
     public void generateScreen(){
         createBackground(1, "treeLandscape.png");
@@ -262,7 +289,7 @@ public class UI {
 
 
         // Scene 3
-        createBackground(3, "cave.png");
+        createBackground(3, "cave3.jpeg");
         createArrowButton(3, 650, 150, 50, 50, "right-arrow.png", "goScene1");
         bgPanel[3].add(bgLabel[3]);
 
