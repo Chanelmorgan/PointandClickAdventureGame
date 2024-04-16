@@ -64,6 +64,7 @@ public class UI {
         bgPanel[bgNum] = new JPanel();
         bgPanel[bgNum].setBounds(50, 50, 700, 350);
         bgPanel[bgNum].setBackground(null);
+        bgPanel[bgNum].setVisible(false);
         bgPanel[bgNum].setLayout(null);
         window.add(bgPanel[bgNum]);
 
@@ -252,7 +253,7 @@ public class UI {
 
     public void createGameOverField(){
         // creating the game over title
-        titleLabel = new JLabel();
+        titleLabel = new JLabel("", JLabel.CENTER);
         titleLabel.setBounds(100, 150, 400, 200);
         titleLabel.setForeground(Color.red);
         titleLabel.setFont(new Font("Times New Roman", Font.PLAIN, 70));
@@ -262,12 +263,18 @@ public class UI {
         // creating the restart button
         restartButton = new JButton();
         restartButton.setBounds(340, 320, 120, 50);
-        restartButton.setBackground(null);
-        restartButton.setForeground(Color.white);
+        restartButton.setBorder(null);
+        restartButton.setBackground(Color.BLACK);
+        restartButton.setForeground(Color.BLUE);
         restartButton.setFocusPainted(false);
         restartButton.addActionListener(gm.aHandelr);
         restartButton.setActionCommand("restart");
         restartButton.setVisible(false);
+        restartButton.setOpaque(true);
+
+
+// Set background color using UIManager
+        UIManager.put("Button.background", Color.BLACK);
         window.add(restartButton);
     }
 

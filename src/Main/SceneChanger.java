@@ -1,5 +1,8 @@
 package Main;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class SceneChanger {
 
     GameManger gm;
@@ -33,7 +36,15 @@ public class SceneChanger {
         gm.ui.titleLabel.setVisible(true);
         gm.ui.titleLabel.setText("YOU DIED");
         gm.ui.restartButton.setVisible(true);
-        gm.ui.restartButton.setText("Click here to restart");
+        gm.ui.restartButton.setText("Restart");
+
+    }
+
+    public void exitGameOverScreen(){
+        gm.ui.titleLabel.setVisible(false);
+        gm.ui.restartButton.setVisible(false);
+        gm.player.setPlayerDefaultStatus();
+
     }
 
 }

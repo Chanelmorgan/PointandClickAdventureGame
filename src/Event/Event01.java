@@ -66,6 +66,7 @@ public class Event01 {
                     gm.player.playerLife--;
                     gm.player.updatePlayerStatus();
                     // end game
+                    gm.sChanger.showGameOverScreen(1);
 
                 }
 

@@ -76,6 +76,12 @@ public class ActionHandler implements ActionListener {
             case "goScene2":
                 gm.sChanger.showScene2();
                 break;
+
+                // Restarting
+            case "restart":
+                gm.sChanger.exitGameOverScreen();
+                gm.sChanger.showScene1();
+                break;
         }
 
     }
