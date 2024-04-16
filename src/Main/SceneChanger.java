@@ -27,4 +27,13 @@ public class SceneChanger {
         gm.ui.bgPanel[3].setVisible(true);
         gm.ui.messageText.setText("You enter the cave. What is waiting for you inside.... \n\n" + "*** This is the end for now. Thank you for playing");
     }
+
+    public void showGameOverScreen(int currentBgNum){
+        gm.ui.bgPanel[currentBgNum].setVisible(false);
+        gm.ui.titleLabel.setVisible(true);
+        gm.ui.titleLabel.setText("YOU DIED");
+        gm.ui.restartButton.setVisible(true);
+        gm.ui.restartButton.setText("Click here to restart");
+    }
+
 }
