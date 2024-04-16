@@ -21,12 +21,17 @@ public class Event02 {
     }
 
     public void enterCave(){
-        gm.ui.messageText.setText("It's too dark to enter");
+        if(gm.player.hasLantern==0){
+            gm.ui.messageText.setText("It's too dark to enter");
+        } else{
+            // goes to scence 3
+        }
+
 
     }
 
     public void lookRoot(){
-        gm.ui.messageText.setText("Thers's something at the tree");
+        gm.ui.messageText.setText("This is a large tree.");
 
     }
 
@@ -36,7 +41,14 @@ public class Event02 {
     }
 
     public void searchRoot(){
-        gm.ui.messageText.setText("You find a lantern!");
+        if(gm.player.hasLantern == 0){
+            gm.ui.messageText.setText("You find a lantern!");
+            gm.player.hasLantern = 1;
+            gm.player.updatePlayerStatus();
+        } else {
+            gm.ui.messageText.setText("You didn't find anything");
+        }
+
 
     }
 }
