@@ -255,10 +255,16 @@ public class UI {
 
         // Scene 2
         createBackground(2, "cave.jpg");
-        createObject(2, 480, 190, 100, 100, "blank.png", "Look", "Talk", "Enter", "lookCave", "talkCave", "tnterCave");
+        createObject(2, 480, 190, 100, 100, "blank.png", "Look", "Talk", "Enter", "lookCave", "talkCave", "enterCave");
         createObject(2, 50, 220, 200, 50, "blank.png", "Look", "Talk", "Search", "lookRoot", "talkRoot", "searchRoot");
         createArrowButton(2, 650, 150, 50, 50, "right-arrow.png", "goScene1");
         bgPanel[2].add(bgLabel[2]);
+
+
+        // Scene 3
+        createBackground(3, "cave.png");
+        createArrowButton(3, 650, 150, 50, 50, "right-arrow.png", "goScene1");
+        bgPanel[3].add(bgLabel[3]);
 
     }
 

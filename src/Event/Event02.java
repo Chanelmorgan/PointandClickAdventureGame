@@ -24,7 +24,8 @@ public class Event02 {
         if(gm.player.hasLantern==0){
             gm.ui.messageText.setText("It's too dark to enter");
         } else{
-            // goes to scence 3
+            // goes to scene 3
+            gm.sChanger.showScene3();
         }
 
 

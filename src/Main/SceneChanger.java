@@ -18,6 +18,13 @@ public class SceneChanger {
     public void showScene2(){
         gm.ui.bgPanel[1].setVisible(false);
         gm.ui.bgPanel[2].setVisible(true);
-        gm.ui.messageText.setText("This is scene two");
+        gm.ui.bgPanel[3].setVisible(false);
+        gm.ui.messageText.setText("");
+    }
+
+    public void showScene3(){
+        gm.ui.bgPanel[2].setVisible(false);
+        gm.ui.bgPanel[3].setVisible(true);
+        gm.ui.messageText.setText("You enter the cave. What is waiting for you inside.... \n\n" + "*** This is the end for now. Thank you for playing");
     }
 }
